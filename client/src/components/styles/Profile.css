@@ -1,0 +1,27 @@
+.profile {
+    padding: 20px;
+  }
+  
+  .profile h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .profile p {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .profile button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .profile button:hover {
+    background-color: #e64a19;
+  }
+  

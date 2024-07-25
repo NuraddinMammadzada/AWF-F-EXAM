@@ -1,0 +1,21 @@
+.order-history {
+    padding: 20px;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .order-item h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  .order-item p {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
