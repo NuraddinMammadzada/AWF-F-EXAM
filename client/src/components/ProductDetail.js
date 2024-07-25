@@ -8,9 +8,15 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/products/${id}`)
-      .then(response => setProduct(response.data))
-      .catch(error => console.error(error));
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/api/products/${id}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+    };
+    fetchProduct();
   }, [id]);
 
   if (!product) return <p>Loading...</p>;
@@ -21,7 +27,7 @@ const ProductDetail = () => {
       <h1>{product.name}</h1>
       <p>${product.price}</p>
       <p>{product.description}</p>
-      <button>Add to Cart</button>
+      <button>Add to Basket</button>
     </div>
   );
 };

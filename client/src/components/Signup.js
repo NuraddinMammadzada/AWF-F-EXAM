@@ -1,55 +1,59 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './styles/Signup.css';
+import './styles/SignUp.css';
 
-const Signup = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [gender, setGender] = useState('female'); // Default to 'female'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/signup', { email, password, name });
-      // Redirect to login or home page after successful signup
+      await axios.post('/api/signup', { email, password, gender });
       window.location.href = '/login';
     } catch (error) {
-      console.error('Signup failed:', error);
+      console.error('Error signing up', error);
     }
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-form">
+    <div className="signup">
+      <div className="form-container">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
-            placeholder="Email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
-            placeholder="Password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <label htmlFor="gender">Gender:</label>
+          <select
+            id="gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
           <button type="submit">Sign Up</button>
-          <p>Already have an account? <a href="/login">Login here</a></p>
+          <p>Already have an account? <Link to="/login">Login here</Link></p>
         </form>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default SignUp;

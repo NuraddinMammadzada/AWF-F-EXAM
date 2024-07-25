@@ -4,8 +4,8 @@ import './styles/Home.css';
 const Home = () => {
   return (
     <div className="home">
-      <h1>Welcome to the Gym Store</h1>
-      {/* Add more content here */}
+      <h1>Welcome to MyStore</h1>
+      <p>Your one-stop shop for all things awesome!</p>
     </div>
   );
 };

@@ -1,29 +1,39 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './styles/Cart.css';
 
 const Cart = () => {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState([]);
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get('/api/cart');
+        setCartItems(response.data);
+      } catch (error) {
+        console.error('Failed to fetch cart items:', error);
+      }
+    };
+
+    fetchCartItems();
+  }, []);
 
   return (
     <div className="cart">
-      {cart.length === 0 ? (
-        <p>Your cart is empty</p>
-      ) : (
-        cart.map(item => (
-          <div className="cart-item" key={item.id}>
-            <h2>{item.name}</h2>
-            <p>${item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-            <button onClick={() => removeFromCart(item.id)}>Remove</button>
-          </div>
-        ))
-      )}
-      <div className="cart-total">
-        <h2>Total: ${total.toFixed(2)}</h2>
-      </div>
+      <h1>Cart</h1>
+      <ul>
+        {cartItems.map((item) => (
+          <li key={item._id}>
+            <img src={item.image} alt={item.name} />
+            <div>
+              <h2>{item.name}</h2>
+              <p>${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <button>Checkout</button>
     </div>
   );
 };

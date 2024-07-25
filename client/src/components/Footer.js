@@ -3,8 +3,8 @@ import './styles/Footer.css';
 
 const Footer = () => {
   return (
-    <footer>
-      <p>&copy; 2024 Your E-commerce Site</p>
+    <footer className="footer">
+      <p>&copy; {new Date().getFullYear()} MyStore. All rights reserved.</p>
     </footer>
   );
 };

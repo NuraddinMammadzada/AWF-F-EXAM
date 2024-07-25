@@ -1,21 +1,19 @@
 .order-history {
-    padding: 20px;
-  }
-  
-  .order-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .order-item h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-  }
-  
-  .order-item p {
-    font-size: 1.2em;
-    color: #333;
-  }
-  
+  padding: 2rem;
+  background: linear-gradient(to right, #1a1a1a, #333);
+  color: #fff;
+}
+
+.order-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-history li {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

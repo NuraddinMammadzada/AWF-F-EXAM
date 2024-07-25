@@ -6,26 +6,30 @@ const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/orders')
-      .then(response => setOrders(response.data))
-      .catch(error => console.error(error));
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get('/api/orders');
+        setOrders(response.data);
+      } catch (error) {
+        console.error('Failed to fetch orders:', error);
+      }
+    };
+
+    fetchOrders();
   }, []);
 
   return (
     <div className="order-history">
       <h1>Order History</h1>
-      {orders.length === 0 ? (
-        <p>No orders found.</p>
-      ) : (
-        orders.map(order => (
-          <div className="order-item" key={order._id}>
-            <h2>Order ID: {order._id}</h2>
+      <ul>
+        {orders.map((order) => (
+          <li key={order._id}>
+            <h2>Order #{order._id}</h2>
             <p>Date: {new Date(order.date).toLocaleDateString()}</p>
             <p>Total: ${order.total}</p>
-            <p>Status: {order.status}</p>
-          </div>
-        ))
-      )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

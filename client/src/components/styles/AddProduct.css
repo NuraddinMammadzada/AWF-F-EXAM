@@ -1,0 +1,46 @@
+.add-product {
+    padding: 2rem;
+  }
+  
+  .add-product h1 {
+    text-align: center;
+    color: #00c6ff;
+    margin-bottom: 2rem;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  label {
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  input, textarea {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: #fff;
+  }
+  
+  button {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+  }
+  
