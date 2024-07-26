@@ -1,7 +1,0 @@
-.basket {
-    background: #121212;
-    color: #ffffff;
-    padding: 2rem;
-    min-height: calc(100vh - 80px); /* Adjust based on Navbar/Footer height */
-  }
-  
